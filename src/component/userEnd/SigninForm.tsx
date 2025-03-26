@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
+import  { Toast } from "@chakra-ui/toast";
 
 const SigninForm = () => {
   const {
@@ -16,7 +17,14 @@ const SigninForm = () => {
         data
       );
       if (response.status === 200) {
-        console.log(response);
+        console.log("Success")
+        Toast({
+          title: "Account created.",
+          description: "We've created your account for you.",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
       }
     } catch (error) {
       console.log(error);
